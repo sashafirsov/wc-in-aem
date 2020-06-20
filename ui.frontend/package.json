@@ -1,55 +1,32 @@
 {
-  "name": "aem-maven-archetype",
+  "name": "polymer3vaadin15-element",
   "version": "1.0.0",
-  "description": "Generates an AEM Frontend project with Webpack",
+  "description": "Generates an AEM Frontend project with Polymer-cli",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adobe/aem-project-archetype"
+    "url": "https://github.com/sashafirsov/wc-in-aem"
   },
   "private": true,
-  "main": "src/main/webpack/site/main.ts",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "main": "polymer3vaadin15-element.js",
+  "license": "SEE LICENSE IN ../LICENSE",
   "scripts": {
-    "dev": "webpack -d --env dev --config ./webpack.dev.js && clientlib --verbose",
-    "prod": "webpack -p --config ./webpack.prod.js && clientlib --verbose",
-    "start": "webpack-dev-server --open --config ./webpack.dev.js"
+    "dev": "polymer build",
+    "prod": "polymer build",
+    "start": "polymer serve",
+    "test": "polymer test"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.3.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
-    "@typescript-eslint/eslint-plugin": "^2.14.0",
-    "@typescript-eslint/parser": "^2.14.0",
-    "acorn": "^6.1.0",
-    "aem-clientlib-generator": "^1.4.3",
-    "autoprefixer": "^9.2.1",
-    "browserslist": "^4.2.1",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.0.0",
-    "cssnano": "^4.1.10",
-    "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.11.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.1",
-    "postcss-loader": "^3.0.0",
-    "sass": "^1.17.2",
-    "sass-loader": "^7.1.0",
-    "source-map-loader": "^0.2.4",
-    "style-loader": "^0.14.1",
-    "terser-webpack-plugin": "^1.4.1",
-    "ts-loader": "^5.3.3",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
-    "typescript": "^3.3.3333",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.9.0",
-    "webpack-import-glob-loader": "^1.6.3",
-    "webpack-merge": "^4.2.1"
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "polymer-cli": "^1.9.11",
+    "wct-mocha": "^1.0.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
   "browserslist": [
     "last 2 version",
     "> 1%"
