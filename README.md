@@ -68,3 +68,12 @@ A ClientLib will consist of the following files and directories:
 The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
 
     http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
+
+# Windows for Linux (WSL) specifics
+* WSL git, mvn in IntelliJ not supported, use Linux terminal instead 
+* IP of wsl host
+
+
+    ip addr
+* 
+     
