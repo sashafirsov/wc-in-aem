@@ -2,7 +2,7 @@
 ## \<polymer3vaadin15-element\>
 
 
-
+http://localhost:4502/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled/src/main/webpack/resources/images/WinTux32.png
 ## Install the Polymer-CLI
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.

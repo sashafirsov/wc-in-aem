@@ -1,5 +1,57 @@
 {
   "npm": true,
+  "entrypoint": "index.html",
+  "shell": "polymer3vaadin15-element.js",
+  "extraDependencies": [
+    "node_modules/@webcomponents/webcomponentsjs/**",
+    "node_modules/@babel/polyfill/dist/**",
+    "node_modules/web-animations-js/*.js"
+  ],
+  "builds": [
+    {
+      "name": "esm-unbundled",
+      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/build/esm-unbundled",
+      "browserCapabilities": [
+        "es2015",
+        "modules",
+        "push"
+      ],
+      "js": {
+        "minify": true,
+        "compile": "es2015",
+        "transformModulesToAmd": false
+      },
+      "css" : {"minify": true },
+      "html": {"minify": true },
+      "bundle": false,
+      "addServiceWorker": false,
+      "addPushManifest": true,
+      "preset": "es6-unbundled"
+    },
+    {
+      "name": "esm-debug",
+      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/build/esm-debug",
+      "browserCapabilities": [
+        "es2015",
+        "modules",
+        "push"
+      ],
+      "js": {
+        "minify": false,
+        "compile": "es2015",
+        "transformModulesToAmd": false
+      },
+      "css" : {"minify": false },
+      "html": {"minify": false },
+      "bundle": false,
+      "addServiceWorker": false,
+      "addPushManifest": true,
+      "preset": "es6-unbundled"
+    },
+    { "preset": "es5-bundled","addServiceWorker": false,
+      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/build/es5-bundled"
+    }
+  ],
   "lint": {
     "rules": [
       "polymer-3"
