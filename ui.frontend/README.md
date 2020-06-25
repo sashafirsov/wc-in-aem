@@ -51,7 +51,10 @@ The following npm scripts drive the frontend workflow:
 
 ### General
 
-The ui.frontend module compiles the code under the `ui.frontend/src` folder and outputs the compiled CSS and JS, and any resources beneath a folder named `ui.frontend/dist`.
+The ui.frontend module compiles the code under the `ui.frontend/src` folder and outputs the compiled CSS and JS, 
+and any resources beneath a folder named `ui.frontend/dist`.
+
+`clientlib.config.js` populates `dist/` into `ui.apps/src/main/content/jcr_root/apps/wc-in-aem/clientlibs/clientlib-site`
 
 * **Site** - `site.js`, `site.css` and a `resources/` folder for layout dependent images and fonts are created in a `dist/clientlib-site` folder.
 * **Dependencies** - `dependencies.js` and `dependencies.css` are created in a `dist/clientlib-dependencies` folder.

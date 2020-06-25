@@ -5,12 +5,20 @@
   "extraDependencies": [
     "node_modules/@webcomponents/webcomponentsjs/**",
     "node_modules/@babel/polyfill/dist/**",
-    "node_modules/web-animations-js/*.js"
+    "node_modules/web-animations-js/*.js",
+    "node_modules/@webcomponents/webcomponentsjs/*.js",
+    "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js"
   ],
+  "sources": [
+    "images/**/*",
+    "demo/**/*"
+  ],
+
   "builds": [
     {
       "name": "esm-unbundled",
-      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/build/esm-unbundled",
+      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled",
       "browserCapabilities": [
         "es2015",
         "modules",
@@ -30,7 +38,7 @@
     },
     {
       "name": "esm-debug",
-      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/build/esm-debug",
+      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-debug",
       "browserCapabilities": [
         "es2015",
         "modules",
@@ -49,7 +57,7 @@
       "preset": "es6-unbundled"
     },
     { "preset": "es5-bundled","addServiceWorker": false,
-      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/build/es5-bundled"
+      "basePath": "/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/es5-bundled"
     }
   ],
   "lint": {

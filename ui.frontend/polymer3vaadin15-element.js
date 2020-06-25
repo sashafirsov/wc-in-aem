@@ -28,5 +28,10 @@ class Polymer3vaadin15Element extends PolymerElement {
     };
   }
 }
-
+const FALSE=!1;
+if( FALSE ) // only for enforcing demo dependencies
+{
+    import( "@polymer/iron-demo-helpers/demo-pages-shared-styles.js" );
+    import( "@polymer/iron-demo-helpers/demo-snippet.js" );
+}
 window.customElements.define('polymer3vaadin15-element', Polymer3vaadin15Element);

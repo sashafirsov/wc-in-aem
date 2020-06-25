@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "polymer build && node post-js-build.js && clientlib --verbose",
     "prod": "polymer build && node post-js-build.js && clientlib --verbose",
+    "build": "polymer build && node post-js-build.js && clientlib --verbose",
     "cl": "clientlib --verbose",
     "start": "polymer serve",
     "test": "polymer test"
@@ -29,7 +30,8 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
-    "@polymer/polymer": "^3.0.0"
+    "@polymer/polymer": "^3.0.0",
+    "web-animations-js": "^2.3.2"
   },
   "browserslist": [
     "last 2 version",
