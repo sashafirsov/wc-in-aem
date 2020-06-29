@@ -10,9 +10,9 @@
   "main": "polymer3vaadin15-element.js",
   "license": "SEE LICENSE IN ../LICENSE",
   "scripts": {
-    "dev": "polymer build && node post-js-build.js && clientlib --verbose",
-    "prod": "polymer build && node post-js-build.js && clientlib --verbose",
-    "build": "polymer build && node post-js-build.js && clientlib --verbose",
+    "dev": "polymer build && node post-js-build.js && clientlib",
+    "prod": "polymer build && node post-js-build.js && clientlib",
+    "build": "polymer build && node post-js-build.js && clientlib",
     "cl": "clientlib --verbose",
     "start": "polymer serve",
     "test": "polymer test"
@@ -22,7 +22,7 @@
     "@polymer/test-fixture": "^4.0.2",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "chai": "^4.2.0",
-    "aem-clientlib-generator": "^1.7.3",
+    "aem-clientlib-generator": "^1.7.4",
     "fs-extra": "^9.0.1",
     "mocha": "^6.1.4",
     "polymer-cli": "^1.9.11",

@@ -23,4 +23,14 @@
         <p class="cmp-helloworld__item-label">Model message:</p>
         <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
     </div>
+    <fieldset>
+        <legend>
+            Web Component
+        </legend>
+        /etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled
+        <sly data-sly-include="../../clientlibs/clientlib-site/resources/build/esm-unbundled/index.html"></sly>
+
+        <polymer3vaadin15-element prop1="${properties.text}"></polymer3vaadin15-element>
+
+    </fieldset>
 </div>
