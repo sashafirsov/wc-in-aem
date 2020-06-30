@@ -1,6 +1,24 @@
-# Sample AEM project template
+# Web Components integration into AEM 6.5 project
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+This project replaces webpack bundle in [AEM archetype](https://github.com/adobe/aem-project-archetype)
+with CDN-capable build toolchain [polymer-cli](https://polymer-library.polymer-project.org/3.0/docs/tools/polymer-cli) 
+
+# Browser-specific tuning
+JS produces builds:  
+* esm-unbundled for modern browsers with es6 modules
+* es5-bundled for legacy browsers like IE
+* esm-debug for troubleshooting and debugging
+
+Back-end defines browser capabilities and uses the optimal for browser build. Which results in 2x smaller footprint and 
+2x of JS load/execution speed. Fat arrow functions and classes would be used for modern browsers as is and simulated in legacy ones.
+
+Legacy browsers also would be served with additional APIs to support your es6 code, Web Components, Web Animations, CSS variables.
+The native es6 `import` in legacy browsers would be replaced with AMD API. 
+  
+# CDN modules reuse
+Unlike WebPack-based AEM archetype code polymer-cli gives ability to reuse the modules across different applications 
+and pages. Even if same module included multiple times on original page or dynamically, browser will load it only ONCE.
+
 
 ## Modules
 
