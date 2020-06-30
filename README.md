@@ -5,9 +5,9 @@ with CDN-capable build toolchain [polymer-cli](https://polymer-library.polymer-p
 
 # Browser-specific tuning
 JS produces builds:  
-* esm-unbundled for modern browsers with es6 modules
-* es5-bundled for legacy browsers like IE
-* esm-debug for troubleshooting and debugging
+* `esm-unbundled` for modern browsers with es6 modules
+* `es5-bundled` for legacy browsers like IE
+* `esm-debug` for troubleshooting and debugging
 
 Back-end defines browser capabilities and uses the optimal for browser build. Which results in 2x smaller footprint and 
 2x of JS load/execution speed. Fat arrow functions and classes would be used for modern browsers as is and simulated in legacy ones.
