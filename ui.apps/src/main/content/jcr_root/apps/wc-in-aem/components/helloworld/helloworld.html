@@ -15,19 +15,17 @@
 
         <div class="cmp-helloworld__item" data-sly-use.WcInAem="suns.aem.core.models.WcInAem" data-sly-test="${model.message}">
             WcInAem 0:
-            ${WcInAem.html}
+            ${WcInAem.html @ context='unsafe'}
         </div>
 
         <div class="cmp-helloworld__item" data-sly-use.WcInAem="suns.aem.core.models.WcInAem" data-sly-test="${model.message}">
             WcInAem 1:
-            ${WcInAem.html}
+            ${WcInAem.html @ context='unsafe'}
         </div>
 
-
-        /etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled
-        <sly data-sly-include="../../clientlibs/clientlib-site/resources/build/esm-unbundled/index.html"></sly>
-
-        <polymer3vaadin15-element prop1="${properties.text}"></polymer3vaadin15-element>
+        <polymer3vaadin15-element prop1="${properties.text}">
+            WEB COMPONENTS NOT LOADED
+        </polymer3vaadin15-element>
 
     </fieldset>
 </div>

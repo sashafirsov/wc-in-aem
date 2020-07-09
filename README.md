@@ -29,7 +29,7 @@ The main parts of the template are:
 * ui.content: contains sample content using the components from the ui.apps
 * ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
 * ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
-* ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
+* ui.frontend: dedicated front-end build mechanism (Web Components project)
 
 ## How to build
 
@@ -87,11 +87,7 @@ The project comes with the auto-public repository configured. To setup the repos
 
     http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
 
-# Windows for Linux (WSL) specifics
-* WSL git, mvn in IntelliJ not supported, use Linux terminal instead 
-* IP of wsl host
+# Development in AEM/IntelliJ
 
-
-    ip addr
-* 
-     
+https://docs.adobe.com/content/help/en/experience-manager-65/developing/devtools/ht-intellij.html
+ 
