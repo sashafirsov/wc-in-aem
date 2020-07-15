@@ -30,5 +30,58 @@
         </template>
       </demo-snippet>
     </div>
+
+    <h1>ESM modules on CDN Demo</h1>
+    <i>Work in progress...
+      <a title="git source"
+         href="https://github.com/EPA-WG/web-elements-loader" >
+        <img src="octocat.svg"/>
+      </a>
+    </i>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+      body{font-family: 'Roboto', sans-serif; margin: 0 }
+      body>*{ padding: 0 0.5rem }
+      h1{ background-color: #4285f4; color: #fff; padding: 1rem }
+      img{ vertical-align: text-bottom; height: 2rem; }
+      li{ padding: 0.3rem }
+
+    </style>
+    <ul>
+      <li>
+        <a href="paper-elements-demo.html" >Paper Elements</a>
+        Polymer material design element demos
+      </li>
+      <li>
+        <a href="neon-animation-demo.html" >Neon Animation</a>
+        @polymer/neon-animation
+      </li>
+      <li>
+        <a href="vaadin-elements-demo.html" >Vaadin Elements</a>
+        as "loading..." UI demo
+      </li>
+      <li>
+        <a href="http://simulationlabs.com/lunchtime/js/" >
+          <img src="teacup.svg"/>
+          Lunch Time
+        </a> web components demo app served from own domain
+        and loading Polymer dependencies from
+        <b>https://cdn.xml4jquery.com/web-elements-loader/build/esm-unbundled/node_modules/</b>. <br/>
+        There is no need for <b>node_modules</b> in the project as all dependencies reside in CDN.
+        <a href="https://github.com/sashafirsov/LunchTime-polymer3/tree/cdn-based">Git sources</a>
+      </li>
+      <li>
+        <a href="material-web-components-demo.html"><img src="mwc_component.svg"/> Material Web Components Catalog</a>
+      </li>
+      <li>
+        <a href="ionic-demo.html"><img src="ionic.svg"/> Ionic Components </a>
+      </li>
+    </ul>
+    <hr/>
+    <p>ES6 modules often are referenced as ESM and sometimes kept in files with .jsm extension using <var>import/export</var>
+      keywords supported by browsers of 2020 natively</p>
+    <p>The JS binaries in this CDN are kept in ESM format allowing to be imported by code from other web sites. </p>
+    <p>For legacy browsers modules are compiled into AMD format. </p>
+
   </body>
 </html>

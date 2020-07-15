@@ -1,4 +1,5 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+import './src/web-elemens-loader.js';
 
 /**
  * `polymer3vaadin15-element`
@@ -14,9 +15,14 @@ class Polymer3vaadin15Element extends PolymerElement {
       <style>
         :host {
           display: block;
+          box-shadow: inset  0 -3em 3em rgba(0,0,0,0.1), 
+                             0 0  0 2px rgb(255,255,255),
+                             0.3em 0.3em 1em rgba(0,0,0,0.3);
         }
+        h2{ color: purple; }
       </style>
-      <h2>Hello [[prop1]]!</h2>
+      <h2>H2 prop1: [[prop1]]!</h2>
+      <p>prop2: [[prop2]]</p>
     `;
   }
   static get properties() {
@@ -25,6 +31,7 @@ class Polymer3vaadin15Element extends PolymerElement {
         type: String,
         value: 'polymer3vaadin15-element',
       },
+      prop2: String
     };
   }
 }

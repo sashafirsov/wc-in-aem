@@ -12,7 +12,8 @@
   ],
   "sources": [
     "images/**/*",
-    "demo/**/*"
+    "demo/**/*",
+    "src/**/*"
   ],
 
   "builds": [

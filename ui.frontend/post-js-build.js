@@ -18,6 +18,7 @@ fs.readdirSync( BUILD_DIR )
     const indexFilePath = path.join(BUILD_DIR,d, 'index.html');
     const txt = fs.readFileSync(indexFilePath, 'utf8')
                     .replace( /src=\"/g , `src="${CDN_ROOT}/${d}/` )
+                    .replace( /define\(\[\'/g , `define(['${CDN_ROOT}/${d}/` )
                     .replace( /<html>/   , `` )
                     .replace( /<\/html>/ , `` )
                     .replace( /<head>/   , `` )

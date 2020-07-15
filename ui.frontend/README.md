@@ -1,7 +1,7 @@
 # Web Components
 ## \<polymer3vaadin15-element\>
 
-
+http://localhost:4502/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-debug/demo/index.html
 http://localhost:4502/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled/src/main/webpack/resources/images/WinTux32.png
 ## Install the Polymer-CLI
 

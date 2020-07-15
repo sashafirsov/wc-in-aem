@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="module" src="../src/web-elemens-loader.js"></script>
+<dom-bind id="bindContext">
+    <template>
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="{{sel}}">
+
+            <app-toolbar>
+                <a href="./"><paper-icon-button icon="vaadin:arrow-backward" ></paper-icon-button></a>
+                <span>neon-animated-pages from CDN demo</span>
+                <span></span>
+                <a title="git source"
+                   href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/neon-animation-demo.html" >
+                    <img src="octocat.svg"/>
+                </a>
+            </app-toolbar>
+            <br/>
+
+            <style is="custom-style">
+                html, body { font-family: "Roboto"; margin: 0; padding: 0; }
+                app-toolbar, app-toolbar a { color: white; background-color: var(--google-blue-500); }
+                app-toolbar span:last-of-type{ flex:4; }
+                app-toolbar a:last-of-type img{ height: 2.5rem; width: 2.5rem;}
+
+                paper-tabs { background-color: steelblue; color:#FFF; }
+                paper-tab.iron-selected { color: yellow; }
+                neon-animated-pages{ min-height: 10rem; overflow: hidden;}
+                neon-animatable{ color: white; }
+                neon-animatable:nth-child(1) { background: var(--paper-yellow-500); color: darkblue;     }
+                neon-animatable:nth-child(2) { background: var(--paper-blue-500);     }
+                neon-animatable:nth-child(3) { background: var(--paper-orange-500);   }
+                neon-animatable:nth-child(4) { background: var(--paper-green-500);    }
+                neon-animatable:nth-child(5) { background: var(--paper-purple-500);   }
+                paper-radio-button { padding: 0; min-width: 15em; }
+                #animatedView{ min-height: 15rem; }
+                .main { height: 27em; overflow: auto; }
+            </style>
+            <paper-tabs id="pageTabs" selected="{{ selectedPage }}" style="margin: 0 32px">
+                <paper-tab>page 1</paper-tab>
+                <paper-tab>page 2</paper-tab>
+                <paper-tab>page 3</paper-tab>
+                <paper-tab>page 4</paper-tab>
+                <paper-tab>page 5</paper-tab>
+            </paper-tabs>
+            <neon-animated-pages id="animatedPages"
+                    entry-animation="[[entryAnimation]]"
+                    exit-animation="[[exitAnimation]]"
+                    selected="[[selectedPage]]">
+                <neon-animatable> 1 </neon-animatable>
+                <neon-animatable> 2 </neon-animatable>
+                <neon-animatable> 3 </neon-animatable>
+                <neon-animatable> 4 </neon-animatable>
+                <neon-animatable> 5 </neon-animatable>
+            </neon-animated-pages>
+            <p>Suggested: scale-up/down, fade-in/out,<br/>
+                <button on-click="_onPrevClick">&#8678;</button><button on-click="_onNextClick">&#8680;</button>
+                <button on-click="_onUpClick"  >&#8679;</button><button on-click="_onDownClick">&#8681;</button>
+                slide-from-right/slide-left,
+                slide-from-bottom/slide-up
+            </p>
+            <div  class="container flex">
+                <label >    Entry animation:[[entryAnimation]]  </label>
+                <paper-radio-group selected="{{ entryAnimation }}"  on-paper-radio-group-changed="redrawPages">
+                    <paper-radio-button name="fade-in-animation"            >fade-in-animation          </paper-radio-button>
+                    <paper-radio-button name="fade-out-animation"           >fade-out-animation         </paper-radio-button>
+                    <paper-radio-button name="opaque-animation"             >opaque-animation           </paper-radio-button>
+                    <paper-radio-button name="reverse-animation"            >ripple-animation           </paper-radio-button>
+                    <paper-radio-button name="reverse-ripple-animation"     >reverse-ripple-animation   </paper-radio-button>
+                    <paper-radio-button name="scale-down-animation"         >scale-down-animation       </paper-radio-button>
+                    <paper-radio-button name="scale-up-animation"           >scale-up-animation         </paper-radio-button>
+                    <paper-radio-button name="slide-down-animation"         >slide-down-animation       </paper-radio-button>
+                    <paper-radio-button name="slide-from-bottom-animation"  >slide-from-bottom-animation</paper-radio-button>
+                    <paper-radio-button name="slide-from-left-animation"    >slide-from-left-animation  </paper-radio-button>
+                    <paper-radio-button name="slide-from-right-animation"   >slide-from-right-animation </paper-radio-button>
+                    <paper-radio-button name="slide-from-top-animation"     >slide-from-top-animation   </paper-radio-button>
+                    <paper-radio-button name="slide-left-animation"         >slide-left-animation       </paper-radio-button>
+                    <paper-radio-button name="slide-right-animation"        >slide-right-animation      </paper-radio-button>
+                    <paper-radio-button name="slide-up-animation"           >slide-up-animation         </paper-radio-button>
+                    <paper-radio-button name="transform-animation"          >transform-animation        </paper-radio-button>
+                </paper-radio-group>
+                <label >    Exit animation:[[exitAnimation]]    </label>
+                <paper-radio-group selected="{{ exitAnimation }}"   on-paper-radio-group-changed="redrawPages">
+                    <paper-radio-button name="fade-in-animation"            >fade-in-animation          </paper-radio-button>
+                    <paper-radio-button name="fade-out-animation"           >fade-out-animation         </paper-radio-button>
+                    <paper-radio-button name="opaque-animation"             >opaque-animation           </paper-radio-button>
+                    <paper-radio-button name="reverse-animation"            >ripple-animation           </paper-radio-button>
+                    <paper-radio-button name="reverse-ripple-animation"     >reverse-ripple-animation   </paper-radio-button>
+                    <paper-radio-button name="scale-down-animation"         >scale-down-animation       </paper-radio-button>
+                    <paper-radio-button name="scale-up-animation"           >scale-up-animation         </paper-radio-button>
+                    <paper-radio-button name="slide-down-animation"         >slide-down-animation       </paper-radio-button>
+                    <paper-radio-button name="slide-from-bottom-animation"  >slide-from-bottom-animation</paper-radio-button>
+                    <paper-radio-button name="slide-from-left-animation"    >slide-from-left-animation  </paper-radio-button>
+                    <paper-radio-button name="slide-from-right-animation"   >slide-from-right-animation </paper-radio-button>
+                    <paper-radio-button name="slide-from-top-animation"     >slide-from-top-animation   </paper-radio-button>
+                    <paper-radio-button name="slide-left-animation"         >slide-left-animation       </paper-radio-button>
+                    <paper-radio-button name="slide-right-animation"        >slide-right-animation      </paper-radio-button>
+                    <paper-radio-button name="slide-up-animation"           >slide-up-animation         </paper-radio-button>
+                    <paper-radio-button name="transform-animation"          >transform-animation        </paper-radio-button>
+                </paper-radio-group>
+            </div>
+            <h2> list to view </h2>
+
+            <neon-animated-pages id="animatedView" selected="[[lvPage]]"
+                                 entry-animation="[[entryAnimation]]"
+                                 exit-animation="[[exitAnimation]]"
+            >
+                <neon-animatable id="listView">
+                    <style>
+                        #listView { @apply --layout-vertical; }
+                        #listView .main { @apply --layout-flex; @apply --layout-scroll; }
+                        #listView iron-icon { color: var(--google-grey-500); }
+                        #pages{overflow: scroll; height: 20em;}
+                    </style>
+                    <app-toolbar>
+                        <paper-icon-button icon="arrow-forward" on-click="_onEntryClick"></paper-icon-button>
+                    </app-toolbar>
+
+                    <div class="main">
+                        <template is="dom-repeat" items="[[fileData]]">
+                            <paper-item>
+                                <paper-item-body two-line>
+                                    <div>[[item.fileName]]</div>
+                                    <div secondary>[[item.modifiedDate]]</div>
+                                </paper-item-body>
+                                <iron-icon icon="info"></iron-icon>
+                            </paper-item>
+                        </template>
+                    </div>
+                </neon-animatable>
+                <neon-animatable id="itemView">
+                    <style>
+                        #itemView { @apply --layout-vertical; }
+                        #itemView .main { @apply --layout-flex; @apply --layout-scroll; }
+                        #itemView iron-icon { color: var(--google-grey-500); }
+                        #itemView app-toolbar { color: white; background-color: var(--google-blue-500); }
+                        #itemView .image{ position: absolute;width: 100%;height: 100%;background: repeating-linear-gradient( 45deg, #f5f5f5, #f5f5f5 8px, #e0e0e0 8px, #e0e0e0 16px );}
+                    </style>
+                    <app-toolbar>
+                        <paper-icon-button icon="clear"  on-click="_onExitClick"></paper-icon-button>
+                    </app-toolbar>
+                    <div class="main">
+                        <div class="image"></div>
+                    </div>
+                </neon-animatable>
+            </neon-animated-pages>
+
+            <hr/>
+            <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
+            <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
+            <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
+
+        </web-elemens-loader>
+        <script>
+            webcomponentsElement.selection = `
+web-animations-js/web-animations-next-lite.min,
+@polymer/paper-styles/paper-styles,
+@polymer/app-layout,
+@polymer/iron-icon,
+@polymer/paper-icon-button,
+@vaadin/vaadin-lumo-styles/icons,
+@vaadin/vaadin-icons,
+
+@polymer/paper-tabs,
+@polymer/paper-tabs/paper-tab,
+@polymer/paper-styles/paper-styles,
+@polymer/iron-flex-layout/iron-flex-layout,
+@polymer/paper-styles/typography,
+@polymer/paper-styles/color,
+@polymer/neon-animation/neon-animated-pages,
+@polymer/neon-animation/neon-animatable,
+@polymer/neon-animation/neon-animation,
+@polymer/neon-animation/animations/fade-in-animation,
+@polymer/neon-animation/animations/fade-out-animation,
+@polymer/neon-animation/animations/opaque-animation,
+@polymer/neon-animation/animations/ripple-animation,
+@polymer/neon-animation/animations/reverse-ripple-animation,
+@polymer/neon-animation/animations/scale-down-animation,
+@polymer/neon-animation/animations/scale-up-animation,
+@polymer/neon-animation/animations/slide-down-animation,
+@polymer/neon-animation/animations/slide-from-bottom-animation,
+@polymer/neon-animation/animations/slide-from-left-animation,
+@polymer/neon-animation/animations/slide-from-right-animation,
+@polymer/neon-animation/animations/slide-from-top-animation,
+@polymer/neon-animation/animations/slide-left-animation,
+@polymer/neon-animation/animations/slide-right-animation,
+@polymer/neon-animation/animations/slide-up-animation,
+@polymer/neon-animation/animations/transform-animation,
+
+@polymer/app-layout/app-toolbar/app-toolbar,
+
+@polymer/iron-icon/iron-icon,
+@polymer/iron-icons/iron-icons,
+@polymer/iron-icons/communication-icons,
+@polymer/iron-flex-layout/iron-flex-layout-classes,
+@polymer/paper-button/paper-button,
+@polymer/paper-icon-button/paper-icon-button,
+@polymer/paper-card/paper-card,
+@polymer/paper-checkbox/paper-checkbox,
+@polymer/paper-dialog/paper-dialog,
+@polymer/paper-dropdown-menu/paper-dropdown-menu,
+@polymer/paper-listbox/paper-listbox,
+@polymer/paper-material,
+@polymer/paper-menu-button/paper-menu-button,
+@polymer/paper-radio-button/paper-radio-button,
+@polymer/paper-radio-group/paper-radio-group,
+@polymer/paper-toolbar/paper-toolbar,
+@polymer/paper-item/paper-icon-item,
+@polymer/paper-item/paper-item-body,
+@polymer/paper-item/paper-icon-item,
+@polymer/app-layout/app-layout,
+@polymer/app-layout/app-header-layout/app-header-layout,
+            `;
+        </script>
+    </template>
+</dom-bind>
+<script>
+(b=>
+{   // set initial values
+    
+    b.selectedPage=0;
+    b.lvPage=0;
+    b.entryAnimation ='scale-up-animation'   ;   'fade-in-animation' ;
+    b.exitAnimation  = 'scale-down-animation';   'fade-out-animation';
+    b.redrawPages  = x=>animatedPages.connectedCallback();
+    b._onPrevClick = x=>
+    {   b.entryAnimation = 'slide-from-left-animation';
+        b.exitAnimation = 'slide-right-animation';
+        b.selectedPage = b.selectedPage ? b.selectedPage-1 : 4 ;
+    };
+    b._onNextClick = x=>
+    {
+        b.entryAnimation = 'slide-from-right-animation';
+        b.exitAnimation = 'slide-left-animation';
+        b.selectedPage = (b.selectedPage +1) %5 ;
+    };
+    b._onUpClick = x=>
+    {   b.entryAnimation = 'slide-from-top-animation';
+        b.exitAnimation = 'slide-down-animation';
+        b.selectedPage = b.selectedPage ? b.selectedPage-1 : 4 ;
+    };
+    b._onDownClick = x=>
+    {   b.entryAnimation = 'slide-from-bottom-animation';
+        b.exitAnimation = 'slide-up-animation';
+        b.selectedPage = (b.selectedPage +1) %5 ;
+    };
+
+    b._onEntryClick = x=>
+    {
+        b.entryAnimation = 'slide-from-right-animation';
+        b.exitAnimation = 'slide-left-animation';
+        animatedView.connectedCallback();
+        b.lvPage = 1;
+    };
+    b._onExitClick = x=>
+    {
+        b.entryAnimation = 'slide-from-left-animation';
+        b.exitAnimation = 'slide-right-animation';
+        animatedView.connectedCallback();
+        b.lvPage = 0;
+    };
+    const fileData = [];
+    for( let i = 0 ; i < 100; i++ )
+        fileData.push({ fileName:`img_${i}.png`, modifiedDate : new Date() });
+    b.fileData = fileData;
+})( bindContext );
+
+</script>
