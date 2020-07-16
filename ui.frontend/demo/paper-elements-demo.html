@@ -1,0 +1,500 @@
+<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="module" src="../src/web-elemens-loader.js"></script>
+<dom-bind>
+    <template>
+
+    <style is="custom-style">
+    html, body {
+        font-family: "Roboto";
+        margin: 0;
+        height: 100%;
+    }
+    app-toolbar, app-toolbar a { color: white; background-color: var(--google-blue-500); }
+    app-header{ left:0!important; right: 0!important; padding: 0!important; }
+    h1 {
+        font-weight: 300;
+    }
+    paper-tabs {
+        background-color: #00bcd4;
+        color: #fff;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    }
+    paper-checkbox {
+        margin: 12px 0;
+    }
+    paper-toolbar {
+        color: #fff;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    }
+    paper-material {
+        width: 175px;
+        height: 175px;
+        margin-right: 24px;
+        margin-top: 24px;
+        display: inline-block;
+    }
+
+    paper-fab {
+        margin-right: 12px;
+    }
+
+    paper-fab.red {
+        color: white;
+        background-color: #f44336;
+    }
+
+    paper-fab.blue {
+        color: white;
+        background-color: #4285f4;
+    }
+    paper-fab.green {
+        color: white;
+        background-color: #0f9d58;
+    }
+
+    paper-textarea {
+        width: 100%;
+    }
+
+    paper-toggle-button.orange {
+        --paper-toggle-button-checked-bar-color:  var(--paper-orange-500);
+        --paper-toggle-button-checked-button-color:  var(--paper-orange-500);
+        --paper-toggle-button-checked-ink-color: var(--paper-orange-500);
+        --paper-toggle-button-unchecked-bar-color:  var(--paper-orange-900);
+        --paper-toggle-button-unchecked-button-color:  var(--paper-orange-900);
+        --paper-toggle-button-unchecked-ink-color: var(--paper-orange-900);
+    }
+
+    paper-toggle-button.blue {
+        --paper-toggle-button-checked-bar-color:  var(--paper-light-blue-500);
+        --paper-toggle-button-checked-button-color:  var(--paper-light-blue-500);
+        --paper-toggle-button-checked-ink-color: var(--paper-light-blue-500);
+        --paper-toggle-button-unchecked-bar-color:  var(--paper-light-blue-900);
+        --paper-toggle-button-unchecked-button-color:  var(--paper-light-blue-900);
+        --paper-toggle-button-unchecked-ink-color: var(--paper-light-blue-900);
+    }
+
+    paper-toggle-button.red {
+        --paper-toggle-button-checked-bar-color:  var(--paper-red-500);
+        --paper-toggle-button-checked-button-color:  var(--paper-red-500);
+        --paper-toggle-button-checked-ink-color: var(--paper-red-500);
+        --paper-toggle-button-unchecked-bar-color:  var(--paper-red-900);
+        --paper-toggle-button-unchecked-button-color:  var(--paper-red-900);
+        --paper-toggle-button-unchecked-ink-color: var(--paper-red-900);
+    }
+
+    paper-toggle-button.green {
+        --paper-toggle-button-checked-bar-color:  var(--paper-green-500);
+        --paper-toggle-button-checked-button-color:  var(--paper-green-500);
+        --paper-toggle-button-checked-ink-color: var(--paper-green-500);
+        --paper-toggle-button-unchecked-bar-color:  var(--paper-green-900);
+        --paper-toggle-button-unchecked-button-color:  var(--paper-green-900);
+        --paper-toggle-button-unchecked-ink-color: var(--paper-green-900);
+    }
+
+    paper-slider.blue {
+        --paper-slider-knob-color: var(--paper-light-blue-500);
+        --paper-slider-active-color: var(--paper-light-blue-500);
+    }
+
+    paper-slider.red {
+        --paper-slider-knob-color: var(--paper-red-500);
+        --paper-slider-active-color: var(--paper-red-500);
+    }
+
+    paper-slider.green {
+        --paper-slider-knob-color: var(--paper-green-500);
+        --paper-slider-active-color: var(--paper-green-500);
+    }
+
+    paper-radio-group,
+    .width {
+        width: 125px;
+    }
+
+    paper-progress {
+        width: 30%;
+        /*  margin-right: 12px;*/
+    }
+
+    /*.line {
+       margin-bottom: 20px;
+     }*/
+
+    .line span {
+        /*  margin-left: 12px;*/
+        margin-top: 10px;
+    }
+
+    paper-listbox {
+        width: 100px;
+    }
+    paper-icon-item{ --iron-icon-width: max-content; }
+
+    paper-toolbar {
+        background-color: var(--paper-pink-a200);
+    }
+
+    paper-header-panel {
+        height: 100%;
+        @apply --shadow-elevation-2dp;
+    }
+
+    paper-header-panel .cover {
+        margin: 120px 100px;
+    }
+
+    paper-header-panel .content {
+        @apply --shadow-elevation-2dp;
+        background: white;
+        /*  height: 100%;*/
+        padding: 24px;
+    }
+
+    .paper-header {
+        padding: 30px;
+        color: #fff;
+        background-color: var(--paper-blue-900);
+    }
+
+    .paper-header.tall {
+        height: 240px;
+    }
+
+    .paper-header img {
+        height: 30px;
+        margin-right: 12px;
+    }
+
+    paper-button.blue {
+        color: var(--paper-light-blue-500);
+    }
+    paper-button.blue:hover {
+        background: var(--paper-light-blue-50);
+    }
+    paper-button.red {
+        color: var(--paper-red-900);
+        background: var(--paper-red-500);
+    }
+    paper-button.red:hover {
+        background: var(--paper-red-50);
+    }
+    paper-button.green {
+        color: var(--paper-green-900);
+        background: var(--paper-green-500);
+    }
+    paper-button.green:hover {
+        background: var(--paper-green-50);
+    }
+    paper-button.orange {
+        color: var(--paper-orange-500);
+
+    }
+    paper-button.orange:hover {
+        background: var(--paper-orange-50);
+    }
+    paper-button[raised].colorful {
+        /*   background: #4285f4;*/
+        /*color: #fff;*/
+    }
+
+    section {
+        margin: 24px 0;
+    }
+
+    .horizontal {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    .line {
+        flex: 1;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .flex {
+        flex: 1;
+    }
+
+    .content {
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: #9E9E9E;
+    }
+
+    .cards {
+        max-width: 700px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<paper-dialog id="modal" entry-animation="scale-up-animation"
+              exit-animation="scale-down-animation" with-backdrop>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div class="buttons">
+        <paper-button dialog-confirm>Tap me to close</paper-button>
+    </div>
+</paper-dialog>
+
+<app-header-layout mode="cover" class="pink">
+    <app-header slot="header" class="paper-header">
+        <app-toolbar>
+            <a href="./index.html">
+                <paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button>
+            </a>
+            <paper-icon-button icon="menu" id="menu-btn"></paper-icon-button>
+            <paper-tooltip for="menu-btn">Refresh</paper-tooltip>
+            <span class="flex" style="font-size:25px;">Polymer material design element from CDN demo</span>
+            <paper-icon-button icon="refresh" id="refresh-btn"></paper-icon-button>
+            <paper-tooltip for="refresh-btn">Refresh</paper-tooltip>
+            <paper-icon-button icon="add" id="add-btn"></paper-icon-button>
+            <paper-tooltip for="add-btn">Add</paper-tooltip>
+            <paper-icon-button icon="search" id="search-btn"></paper-icon-button>
+            <paper-tooltip for="search-btn">Search</paper-tooltip>
+            <paper-icon-button icon="cloud-upload" id="upload-btn"></paper-icon-button>
+            <paper-tooltip for="upload-btn">Upload</paper-tooltip>
+            <a title="git source"
+               href="https://github.com/EPA-WG/web-elements-loader/blob/master/demo/paper-elements-demo.html" >
+                <img src="octocat.svg"/>
+            </a>
+        </app-toolbar>
+    </app-header>
+    <div class="content cover">
+        <section class="layout horizontal center">
+
+            <paper-radio-group selected="y">
+                <paper-radio-button name="y">Yes</paper-radio-button><br>
+                <paper-radio-button name="m">Maybe</paper-radio-button><br>
+                <paper-radio-button name="n">No</paper-radio-button>
+            </paper-radio-group>
+
+            <div class="layout vertical width">
+                <paper-checkbox checked> True</paper-checkbox>
+                <paper-checkbox>False</paper-checkbox>
+            </div>
+
+            <div class="cards">
+                <paper-material elevation="1" class="card layout horizontal center-center">
+                    <paper-ripple style="color: #0f9d58"></paper-ripple>
+                    <span>&lt;paper-material><paper-badge label="1"></paper-badge></span>
+                </paper-material>
+                <paper-material elevation="2" class="card layout horizontal center-center">
+                    <paper-ripple style="color: #d23f31"></paper-ripple>
+                    <span>&lt;paper-material><paper-badge label="2"></paper-badge></span>
+                </paper-material>
+                <paper-material elevation="3" class="card layout horizontal center-center">
+                    <paper-ripple style="color: #4285f4;"></paper-ripple>
+                    <span>&lt;paper-material><paper-badge label="3"></paper-badge></span>
+                </paper-material>
+            </div>
+
+            <div>
+                <paper-listbox  class="list" selected="0">
+                    <paper-icon-item>
+                        <iron-icon icon="inbox" item-icon></iron-icon>
+                        Inbox
+                    </paper-icon-item>
+                    <paper-icon-item>
+                        <iron-icon icon="star" item-icon></iron-icon>
+                        Starred
+                    </paper-icon-item>
+                    <paper-icon-item disabled>Sent mail</paper-icon-item>
+                </paper-listbox>
+            </div>
+
+            <!-- <paper-listbox>
+              <paper-listbox>
+                <paper-item class="menu-trigger">Submenu</paper-item>
+                <paper-listbox class="menu-content">
+                  <paper-item>Topic 1</paper-item>
+                  <paper-item>Topic 2</paper-item>
+                  <paper-item>Topic 3</paper-item>
+                </paper-listbox>
+              </paper-listbox>
+              <paper-listbox>
+                <paper-item class="menu-trigger">Faves</paper-item>
+                <paper-listbox class="menu-content">
+                  <paper-item>Fave 1</paper-item>
+                  <paper-item>Fave 2</paper-item>
+                </paper-listbox>
+              </paper-listbox>
+              <paper-listbox disabled>
+                <paper-item class="menu-trigger">Disabled</paper-item>
+                <paper-listbox class="menu-content">
+                  <paper-item>Disabled 1</paper-item>
+                  <paper-item>Disabled 2</paper-item>
+                </paper-listbox>
+              </paper-listbox>
+            </paper-listbox> -->
+
+        </section>
+
+        <section class="layout horizontal center">
+
+            <div class="layout horizontal justified" style="width: 350px">
+                <div class="line layout vertical center">
+                    <paper-toggle-button checked class="blue"></paper-toggle-button><span>Oxygen</span>
+                </div>
+                <div class="line layout vertical center">
+                    <paper-toggle-button class="red"></paper-toggle-button><span>Carbon</span>
+                </div>
+                <div class="line layout vertical center">
+                    <paper-toggle-button class="orange"></paper-toggle-button><span>Hydrogen</span>
+                </div>
+                <div class="line layout vertical center">
+                    <paper-toggle-button checked class="green"></paper-toggle-button><span>Nitrogen</span>
+                </div>
+            </div>
+
+            <paper-tabs selected="0" style="margin: 0 32px">
+                <paper-tab>Paper tabs 1</paper-tab>
+                <paper-tab>Paper tabs 2</paper-tab>
+                <paper-tab>Paper tabs 3</paper-tab>
+                <paper-tab>Paper tabs 4</paper-tab>
+            </paper-tabs>
+
+            <paper-dropdown-menu label="Your fav pastry">
+                <paper-listbox slot="dropdown-content">
+                    <paper-item>Croissant</paper-item>
+                    <paper-item>Donut</paper-item>
+                    <paper-item>Financier</paper-item>
+                    <paper-item>Madeleine</paper-item>
+                </paper-listbox>
+            </paper-dropdown-menu>
+
+        </section>
+
+        <section  class="layout horizontal justified" style="margin: 32px 0">
+            <paper-progress clas="flex" value="800" min="100" max="1000"></paper-progress>
+            <paper-progress clas="flex" value="30" secondary-progress="70"></paper-progress>
+            <paper-progress clas="flex" indeterminate></paper-progress>
+        </section>
+
+        <section class="layout horizontal center">
+            <div style="margin-right: 24px">
+                <paper-spinner active></paper-spinner>
+            </div>
+            <paper-slider pin max="10" step="1" value="5"></paper-slider>
+            <paper-slider class="red" value="23" max="255"></paper-slider>
+            <paper-slider class="green" value="183" max="255"></paper-slider>
+            <paper-slider class="blue" value="0" max="255" secondary-progress="170"></paper-slider>
+        </section>
+
+        <section class="layout horizontal center">
+
+            <div style="margin-right: 24px">
+                <paper-button raised>raised</paper-button>
+                <paper-button raised disabled>disabled</paper-button>
+                <paper-button raised class="green colorful"><iron-icon icon="check"></iron-icon>ok</paper-button>
+                <paper-button raised class="red colorful"><iron-icon icon="clear"></iron-icon>cancel</paper-button>
+
+                <paper-button toggles raised class="green">toggles</paper-button>
+
+                <custom-style>
+                    <style>
+                        paper-button.green { background-color: var(--paper-green-500);color: white; }
+                        paper-button.green[active] { background-color: var(--paper-red-500); }
+                    </style>
+                </custom-style>
+            </div>
+
+            <div class="layout horizontal center" style="margin-right: 24px">
+                <paper-input placeholder="paper-input" label="My label"></paper-input>
+                <!-- <paper-input label="label"></paper-input> -->
+                <!-- <paper-input label="required input" auto-validate required error-message="input required!"></paper-input> -->
+            </div>
+            <!-- <paper-textarea placeholder="hint-text" label="label"></paper-textarea> -->
+
+            <div class="layout horizontal center" style="margin-right: 24px">
+                <paper-fab class="red" focused icon="favorite"></paper-fab>
+                <paper-fab class="blue" icon="add"></paper-fab>
+                <paper-fab class="green" icon="mail" mini></paper-fab>
+            </div>
+
+            <paper-button onclick="document.querySelector('paper-dialog').open()" class="orange colorful" raised>Dialog</paper-button>
+
+        </section>
+
+        <footer><a href="https://github.com/ebidel/material-playground">View on github</a></footer>
+
+    </div>
+</app-header-layout>
+
+<paper-toast text="Helpful paper-toast!" opened ></paper-toast>
+<!-- content of this file is appended to index.html during build -->
+        <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
+        <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
+        <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
+
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="{{sel}}"></web-elemens-loader>
+        <script>
+            webcomponentsElement.selection = `
+@polymer/paper-styles/paper-styles,
+@polymer/app-layout,
+@polymer/iron-icon,
+@polymer/paper-icon-button,
+@vaadin/vaadin-lumo-styles/icons,
+@vaadin/vaadin-icons,
+@neon-animation/animations/scale-up-animation,
+@neon-animation/animations/scale-down-animation,
+@neon-animation/animations/fade-in-animation,
+@neon-animation/animations/fade-out-animation,
+@polymer/iron-icon/iron-icon,
+@polymer/iron-icons/iron-icons,
+@polymer/iron-icons/communication-icons,
+@polymer/iron-flex-layout/iron-flex-layout-classes,
+@polymer/paper-badge/paper-badge,
+@polymer/paper-button/paper-button,
+@polymer/paper-icon-button/paper-icon-button,
+@polymer/paper-card/paper-card,
+@polymer/paper-checkbox/paper-checkbox,
+@polymer/paper-dialog/paper-dialog,
+@polymer/paper-dropdown-menu/paper-dropdown-menu,
+@polymer/paper-fab/paper-fab,
+@polymer/paper-input/paper-input,
+@polymer/paper-input/paper-textarea,
+@polymer/paper-input/paper-input-error,
+@polymer/paper-listbox/paper-listbox,
+@polymer/paper-material,
+@polymer/paper-menu-button/paper-menu-button,
+@polymer/paper-progress/paper-progress,
+@polymer/paper-radio-button/paper-radio-button,
+@polymer/paper-radio-group/paper-radio-group,
+@polymer/paper-ripple/paper-ripple,
+@polymer/paper-slider/paper-slider,
+@polymer/paper-spinner/paper-spinner,
+@polymer/paper-styles/paper-styles,
+@polymer/paper-tabs/paper-tabs,
+@polymer/paper-tabs/paper-tab,
+@polymer/paper-tabs/paper-tabs-icons,
+@polymer/paper-toast/paper-toast,
+@polymer/paper-toggle-button/paper-toggle-button,
+@polymer/paper-toolbar/paper-toolbar,
+@polymer/paper-tooltip/paper-tooltip,
+@polymer/paper-item/paper-icon-item,
+@polymer/paper-item/paper-item-body,
+@polymer/paper-item/paper-icon-item,
+@polymer/app-layout/app-layout,
+@polymer/app-layout/app-header-layout/app-header-layout,
+@polymer/app-layout/app-toolbar/app-toolbar,
+            `;
+        </script>
+    </template>
+</dom-bind>

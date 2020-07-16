@@ -1,24 +1,44 @@
+# Web Components
+## \<polymer3vaadin15-element\>
+
+http://localhost:4502/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-debug/demo/index.html
+http://localhost:4502/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled/src/main/webpack/resources/images/WinTux32.png
+## Install the Polymer-CLI
+
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
+
+## Viewing Your Element
+
+```
+$ polymer serve
+```
+
+## Running Tests
+
+```
+$ polymer test
+```
+
+Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). 
+Run `polymer test` to run your application's test suite locally.
+
+### tests debugging
+`wct.conf.json` is configured for headless run. It could be removed to see it in live browser UI for tests debug with dev tools.
+Chrome or Firefox browser should be installed in OS. 
+
+<hr/>
 # Frontend Build
 
 ## Features
 
-* Full TypeScript, ES6 and ES5 support (with applicable Webpack wrappers).
-* TypeScript and JavaScript linting (using a TSLint ruleset – driven by ESLint - rules can be adjusted to suit your team's needs).
-* ES5 output, for legacy browser support.
-* Globbing
-    * No need to add imports anywhere.
-    * All JS and CSS files can now be added to each component (best practice is under /clientlib/js or /clientlib/(s)css)
-    * No .content.xml or js.txt/css.txt files needed as everything is run through Webpack
-    * The globber pulls in all JS files under the /component/ folder. Webpack allows CSS/SCSS files to be chained in via JS files. They are pulled in through sites.js.
-    * The only files consumed by AEM are the output files site.js and site.css, the resources folder in /clientlib-site as well as dependencies.js and dependencies.css in /clientlib-dependencies
-* Chunks
-    * Main (site js/css)
-* Full Sass/Scss support (Sass is compiled to CSS via Webpack).
-* Static webpack development server with built in proxy to a local instance of AEM
+* Webpack is replaced in favor of `polymer-cli`
+* Sass/Scss is replaced with css variables and mixins.
+* removed: Static webpack development server with built in proxy to a local instance of AEM
 
 ## Installation
 
 1. Install [NodeJS](https://nodejs.org/en/download/) (v10+), globally. This will also install `npm`.
+    it is not required for maven build which will load npm as own dependency.
 2. Navigate to `ui.frontend` in your project and run `npm install`. (You must have run the archetype with `-DfrontendModule=general` to populate the ui.frontend folder)
 
 ## Usage
@@ -27,11 +47,14 @@ The following npm scripts drive the frontend workflow:
 
 * `npm run dev` - Full build of client libraries with JS optimization disabled (tree shaking, etc) and source maps enabled and CSS optimization disabled.
 * `npm run prod` - Full build of client libraries build with JS optimization enabled (tree shaking, etc), source maps disabled and CSS optimization enabled.
-* `npm run start` - Starts a static webpack development server for local development with minimal dependencies on AEM.
+* `npm run start` - Starts a static development server for local development without dependencies on AEM.
 
 ### General
 
-The ui.frontend module compiles the code under the `ui.frontend/src` folder and outputs the compiled CSS and JS, and any resources beneath a folder named `ui.frontend/dist`.
+The ui.frontend module compiles the code under the `ui.frontend/src` folder and outputs the compiled CSS and JS, 
+and any resources beneath a folder named `ui.frontend/dist`.
+
+`clientlib.config.js` populates `dist/` into `ui.apps/src/main/content/jcr_root/apps/wc-in-aem/clientlibs/clientlib-site`
 
 * **Site** - `site.js`, `site.css` and a `resources/` folder for layout dependent images and fonts are created in a `dist/clientlib-site` folder.
 * **Dependencies** - `dependencies.js` and `dependencies.css` are created in a `dist/clientlib-dependencies` folder.

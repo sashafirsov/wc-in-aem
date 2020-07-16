@@ -1,6 +1,24 @@
-# Sample AEM project template
+# Web Components integration into AEM 6.5 project
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+This project replaces webpack bundle in [AEM archetype](https://github.com/adobe/aem-project-archetype)
+with CDN-capable build toolchain [polymer-cli](https://polymer-library.polymer-project.org/3.0/docs/tools/polymer-cli) 
+
+# Browser-specific tuning
+JS produces builds:  
+* `esm-unbundled` for modern browsers with es6 modules
+* `es5-bundled` for legacy browsers like IE
+* `esm-debug` for troubleshooting and debugging
+
+Back-end defines browser capabilities and uses the optimal for browser build. Which results in 2x smaller footprint and 
+2x of JS load/execution speed. Fat arrow functions and classes would be used for modern browsers as is and simulated in legacy ones.
+
+Legacy browsers also would be served with additional APIs to support your es6 code, Web Components, Web Animations, CSS variables.
+The native es6 `import` in legacy browsers would be replaced with AMD API. 
+  
+# CDN modules reuse
+Unlike WebPack-based AEM archetype code polymer-cli gives ability to reuse the modules across different applications 
+and pages. Even if same module included multiple times on original page or dynamically, browser will load it only ONCE.
+
 
 ## Modules
 
@@ -11,7 +29,7 @@ The main parts of the template are:
 * ui.content: contains sample content using the components from the ui.apps
 * ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
 * ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
-* ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
+* ui.frontend: dedicated front-end build mechanism (Web Components project)
 
 ## How to build
 
@@ -69,11 +87,7 @@ The project comes with the auto-public repository configured. To setup the repos
 
     http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
 
-# Windows for Linux (WSL) specifics
-* WSL git, mvn in IntelliJ not supported, use Linux terminal instead 
-* IP of wsl host
+# Development in AEM/IntelliJ
 
-
-    ip addr
-* 
-     
+https://docs.adobe.com/content/help/en/experience-manager-65/developing/devtools/ht-intellij.html
+ 

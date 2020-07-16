@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="module" src="../src/web-elemens-loader.js"></script>
+<!--<script type="module" src="../node_modules/@material/mwc-button/mwc-button.js"></script>-->
+<dom-bind>
+    <template>
+        <web-elemens-loader visible="true" id="webcomponentsElement" selection="
+@polymer/iron-icon,
+@polymer/paper-icon-button,
+@vaadin/vaadin-lumo-styles/icons,
+@vaadin/vaadin-icons,
+@material/mwc-button,
+@material/mwc-button/mwc-button,
+@material/mwc-icon,
+@material/mwc-checkbox,
+@material/mwc-formfield,
+@material/mwc-dialog,
+@material/mwc-ripple,
+@polymer/paper-button,
+@material/mwc-textfield,
+@material/mwc-drawer,
+@material/mwc-top-app-bar,
+@material/mwc-icon-button,
+@material/mwc-fab,
+@material/mwc-formfield,
+@material/mwc-slider,
+@material/mwc-radio,
+@material/mwc-switch,
+@material/mwc-icon-button-toggle,
+@material/mwc-linear-progress,
+@material/mwc-list,
+@material/mwc-list/mwc-list-item,
+@material/mwc-list/mwc-check-list-item,
+@material/mwc-list/mwc-radio-list-item,
+@material/mwc-menu,
+@material/mwc-select,
+@epa-wg/web-elemens-loader/wel-css-query,
+@material/mwc-textfield,
+@material/mwc-radio,
+@material/mwc-slider,
+@material/mwc-snackbar,
+@material/mwc-switch,
+@material/mwc-tab,
+@material/mwc-tab-bar,
+@material/mwc-textarea,
+@material/mwc-top-app-bar,
+@material/mwc-top-app-bar-fixed,
+"
+        >
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+            @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+            @import url('https://fonts.googleapis.com/css?family=Material+Icons&display=block');
+            body{font-family: 'Roboto', sans-serif; margin: 0 }
+            body>*>*{ padding: 0 0.5rem }
+            details[open]{width: 100%}
+            app-toolbar, header
+            {   color: white; background-color: var(--google-blue-500); min-height: 3rem; display: flex;
+                justify-content: space-between; align-items:center;
+            }
+            header h3{ flex-grow: 4; padding-left: 1rem }
+            img{ height: 2rem }
+            app-toolbar h1{ flex-grow: 4; }
+            details p{ display: flex; flex-wrap:wrap; }
+            mwc-button{ padding: 0.3rem }
+            mwc-button img{height: 1.5em; }
+            label { display: inline-flex; vertical-align: middle; align-items: center; margin-right: 1rem; }
+            summary, mwc-fab { padding: 0.3rem; }
+            .flex-grid{ display: flex; flex-wrap:wrap; }
+            .flex-grid section{ margin: 0.3rem }
+            section>h4 { background: aliceblue;padding: 0.5rem 1rem;margin: 0;border-radius: 3rem 0;}
+            mwc-textfield[type="number"]{width: 5em}
+            .section-100 section{ min-width: 40rem}
+            mwc-textarea, .textfield mwc-textfield { display:block; margin: 0.5rem 0 0.5rem 0 }
+            mwc-top-app-bar{width: 100% }
+        </style>
+
+        <app-toolbar>
+            <a href="./index.html"><paper-icon-button icon="vaadin:arrow-backward" id="menu-btn"></paper-icon-button></a>
+            <h1> Material Web Components from CDN demo </h1>
+            <a  title="git source"
+                href="https://github.com/material-components/material-components-web-components/" >
+                <img src="octocat.svg"/>
+            </a>
+        </app-toolbar>
+        <h3>
+            <a href="https://mwc-demos.glitch.me/demos/">
+                <img src="mwc_component.svg"/>
+                Material Web Components Catalog
+            </a>
+        </h3>
+        <main class="flex-grid">
+
+            <details>
+                <summary>
+                    <label> <mwc-icon>crop_16_9</mwc-icon> Button</label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/button"
+                    ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/button.html"
+                    ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <p>
+                    <mwc-button label="icon" icon="alarm"               ></mwc-button>
+                    <mwc-button outlined label="outlined"               ></mwc-button>
+                    <mwc-button outlined label="outlined" icon="code"   ></mwc-button>
+                    <mwc-button raised label="raised"                   ></mwc-button>
+                    <mwc-button label="standard"                        ></mwc-button>
+                    <mwc-button raised label="raised" icon="code"       ></mwc-button>
+                    <mwc-button unelevated label="unelevated"           ></mwc-button>
+                    <mwc-button unelevated label="unelevated" icon="code"   ></mwc-button>
+                    <mwc-button dense unelevated label="dense"              ></mwc-button>
+                    <mwc-button dense unelevated label="dense" icon="code"  ></mwc-button>
+                </p>
+                <p>
+                    <mwc-button label="trailing icon" icon="code" trailingIcon></mwc-button>
+                    <mwc-button outlined label="trailing icon" icon="code" trailingIcon></mwc-button>
+                    <mwc-button raised label="trailing icon" icon="code" trailingIcon></mwc-button>
+                    <mwc-button unelevated label="trailing icon" icon="code" trailingIcon></mwc-button>
+                </p>
+                <p>
+                    <mwc-button disabled label="disabled" icon="code"></mwc-button>
+                    <mwc-button disabled outlined label="disabled" icon="code"></mwc-button>
+                    <mwc-button disabled raised label="disabled" icon="code"></mwc-button>
+                    <mwc-button disabled unelevated label="disabled" icon="code"></mwc-button>
+                </p>
+                <p><mwc-button fullwidth outlined label="full-width"></mwc-button></p>
+
+                <main>
+                    <h2>Styling</h2>
+                    <style data-pre="main-colors">
+                        .main-colors {
+                            --mdc-theme-primary: darkgreen;
+                            --mdc-theme-on-primary: aqua;
+                            --mdc-button-disabled-fill-color: darkseagreen;
+                            --mdc-button-disabled-ink-color: aliceblue;
+                        }
+                    </style>
+                    <pre id="main-colors"></pre>
+                    <div class="demo-group wrap main-colors">
+                        <mwc-button icon="code" label="standard"></mwc-button>
+                        <mwc-button outlined icon="code" label="outlined"></mwc-button>
+                        <mwc-button raised icon="code" label="raised"></mwc-button>
+                        <mwc-button raised icon="code" label="raised-disabled" disabled></mwc-button>
+                        <mwc-button unelevated icon="code" label="unelevated"></mwc-button>
+                        <mwc-button unelevated icon="code" label="unelevated-disabled" disabled></mwc-button>
+                    </div>
+
+                    <style data-pre="text">
+                        .text {
+                            --mdc-button-text-transform: lowercase;
+                            --mdc-button-letter-spacing: 5px;
+                        }
+                    </style>
+                    <pre id="text"></pre>
+                    <div class="demo-group wrap text">
+                        <mwc-button icon="code" label="lowerspace"></mwc-button>
+                        <mwc-button outlined icon="code" label="lowerspace"></mwc-button>
+                        <mwc-button raised icon="code" label="lowerspace"></mwc-button>
+                        <mwc-button unelevated icon="code" label="lowerspace"></mwc-button>
+                    </div>
+
+                    <style data-pre="horizontal-padding">
+                        .horizontal-padding {
+                            --mdc-button-horizontal-padding: 50px;
+                        }
+                    </style>
+                    <pre id="horizontal-padding"></pre>
+                    <div class="demo-group wrap horizontal-padding">
+                        <mwc-button icon="code" label="padding"></mwc-button>
+                        <mwc-button outlined icon="code" label="padding"></mwc-button>
+                        <mwc-button raised icon="code" label="padding"></mwc-button>
+                        <mwc-button unelevated icon="code" label="padding"></mwc-button>
+                    </div>
+
+                    <style data-pre="outline">
+                        .outline .themed {
+                            --mdc-theme-primary: royalblue;
+                            --mdc-button-disabled-ink-color: powderblue;
+                        }
+
+                        .outline .outline-different {
+                            --mdc-button-outline-color: darkgreen;
+                            --mdc-button-disabled-outline-color: palegreen;
+                            --mdc-button-disabled-ink-color: plum;
+                        }
+
+                        .outline .width {
+                            --mdc-button-outline-width: 5px;
+                        }
+                    </style>
+                    <pre id="outline"></pre>
+                    <div class="demo-group wrap outline">
+                        <mwc-button outlined class="themed" icon="code" label="themed"></mwc-button>
+                        <mwc-button outlined class="themed" disabled icon="code" label="themed"></mwc-button>
+                        <mwc-button outlined class="outline-different" icon="code" label="outline-different"></mwc-button>
+                        <mwc-button outlined class="outline-different" disabled icon="code" label="outline-different"></mwc-button>
+                        <mwc-button outlined class="width" icon="code" label="width"></mwc-button>
+                        <mwc-button outlined class="width" disabled icon="code" label="width"></mwc-button>
+                    </div>
+                </main>
+            </details>
+            <details>
+                <summary>
+                    <label> <mwc-icon>filter_vintage</mwc-icon> Icons</label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/icon"
+                    ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/icon.html"
+                    ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <a href="https://material.io/resources/icons"
+                    ><mwc-button outlined >All material.io icons <img src="material_logo.svg"/> </mwc-button></a>
+                <p>
+                    <style>
+                        .color-size {
+                            color: mediumaquamarine;
+                            --mdc-icon-size: 4em;
+                        }
+                    </style>
+                    <div class="demo-group">
+                        <mwc-icon>  sentiment_very_dissatisfied   </mwc-icon>
+                        <mwc-icon>  sentiment_dissatisfied        </mwc-icon>
+                        <mwc-icon>  sentiment_neutral             </mwc-icon>
+                        <mwc-icon>  sentiment_satisfied           </mwc-icon>
+                        <mwc-icon>  sentiment_very_satisfied      </mwc-icon>
+                    </div>
+
+                    <h4>color and size</h4>
+                    <div class="demo-group color-size">
+                        <mwc-icon> all_out          </mwc-icon>
+                        <mwc-icon> accessibility    </mwc-icon>
+                        <mwc-icon> exit_to_app      </mwc-icon>
+                        <mwc-icon> camera           </mwc-icon>
+                        <mwc-icon> sms              </mwc-icon>
+                    </div>
+                </p>
+            </details>
+            <details>
+                <summary>
+                    <label> <mwc-icon>check_box</mwc-icon> Checkbox</label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/checkbox"
+                    ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/checkbox.html"
+                    ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <p>
+                    <label><mwc-checkbox                   ></mwc-checkbox> simple          </label>
+                    <label><mwc-checkbox checked           ></mwc-checkbox> checked         </label>
+                    <label><mwc-checkbox indeterminate     ></mwc-checkbox> indeterminate   </label>
+                    <label><mwc-checkbox disabled          ></mwc-checkbox> disabled        </label>
+                    <label><mwc-checkbox></mwc-checkbox></label>
+                </p>
+                <p>
+                    <h2> Styled standard, disabled </h2>
+                    <style>
+                        .styled-cb {
+                            background-color: #363636;
+
+                            --mdc-theme-secondary: #ff2929;
+                            --mdc-checkbox-unchecked-color: white;
+                            /* Required for unchecked focus ripple */
+                            --mdc-theme-on-surface: white;
+                            --mdc-checkbox-disabled-color: #adadad;
+                            --mdc-checkbox-mark-color: #363636;
+                        }
+                    </style>
+                    <div class="styled-cb">
+                        <mwc-checkbox></mwc-checkbox>
+                        <mwc-checkbox checked       ></mwc-checkbox>
+                        <mwc-checkbox indeterminate ></mwc-checkbox>
+                    </div>
+                    <div class="styled-cb">
+                        <mwc-checkbox disabled                  ></mwc-checkbox>
+                        <mwc-checkbox disabled checked          ></mwc-checkbox>
+                        <mwc-checkbox disabled indeterminate    ></mwc-checkbox>
+                    </div>
+                </p>
+                <p>
+                    <h2> With Form Field </h2>
+                    <style>
+                        mwc-formfield { display: block; margin-right: 2rem;}
+                        .child-cb { margin-left: 20px; }
+                    </style>
+                    <mwc-formfield label="Additions">
+                        <mwc-checkbox indeterminate></mwc-checkbox>
+                    </mwc-formfield>
+                        <mwc-formfield label="Pickles">
+                        <mwc-checkbox class="child-cb"></mwc-checkbox>
+                    </mwc-formfield>
+                    <mwc-formfield label="Tomato">
+                        <mwc-checkbox class="child-cb" checked></mwc-checkbox>
+                    </mwc-formfield>
+                </p>
+            </details>
+            <details>
+                <summary>
+                    <label> <mwc-icon>flip_to_front</mwc-icon> dialog </label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/dialog"
+                    ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/dialog.html"
+                    ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <main>
+                    <paper-button toggles raised active="{{ demoDialog1 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Basic
+                    </paper-button>
+                    <mwc-dialog id="dialog1" heading="Dialog header" open="{{ demoDialog1 }}">
+                        Dialog body text
+                        <mwc-button slot="primaryAction"    dialogAction="ok"       >Action 2</mwc-button>
+                        <mwc-button slot="secondaryAction"  dialogAction="cancel"   >Action 1</mwc-button>
+                    </mwc-dialog>
+
+                    <paper-button toggles raised active="{{ demoDialog2 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Actions
+                    </paper-button>
+                    <mwc-dialog id="dialog2" heading="Actions" open="{{ demoDialog2 }}">
+                        <p>
+                            By setting the dialogAction="my-action" attribute on any element projected into
+                            mwc-dialog, you can close the dialog by clicking on that element. The
+                            dialog will then fire a non-bubbling "closing" event and a non-bubbling
+                            "closed" event with an event detail of {action: "my-action"}
+                        </p>
+                        <mwc-button slot="primaryAction" dialogAction="customAction">This has action</mwc-button>
+                        <mwc-button slot="secondaryAction">this does not</mwc-button>
+                    </mwc-dialog>
+
+                    <paper-button toggles raised active="{{ demoDialog3 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Scrollable
+                    </paper-button>
+                    <mwc-dialog id="dialog3" heading="My Title" open="{{ demoDialog3 }}">
+                        <p>
+                            Really long text will scroll. Really long text will scroll. Really long text will scroll. Really
+                            long text will scroll. Really long text will scroll. Really long text will scroll. Really long text
+                            will scroll. Really long text will scroll. Really long text will scroll. Really long text will
+                            scroll. Really long text will scroll. Really long text will scroll. Really long text will scroll.
+                        </p>
+                        <mwc-button slot="primaryAction" dialogAction="close">Close this!</mwc-button>
+                    </mwc-dialog>
+
+                    <paper-button toggles raised active="{{ demoDialog4 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Hide Actions
+                    </paper-button>
+                    <mwc-dialog id="dialog4" heading="Hide Actions" open="{{ demoDialog4 }}">
+                        <p>
+                            If you don't have actions, you may want to set the "hideActions" property.
+                            This property will remove extra whitespace at the bottom of this dialog.
+                            This button will toggle that whitespace:
+                        </p>
+                        <mwc-button raised id="toggleActions">Toggle hideActions</mwc-button>
+                        <div>
+                            mwc-dialog.hideActions is currently:
+                            <span id="hideActionVal"> false </span>
+                        </div>
+                    </mwc-dialog>
+
+                    <style>
+                        #dialog5 {
+                            --mdc-theme-surface: orange;
+                            --mdc-dialog-scrim-color: rgba(35, 47, 52, .32);
+                            --mdc-dialog-heading-ink-color: #232F34;
+                            --mdc-dialog-content-ink-color: #232F34;
+                            --mdc-dialog-scroll-divider-color: transparent;
+                            --mdc-dialog-min-width: 500px;
+                            --mdc-dialog-max-width: 700px;
+                            --mdc-dialog-max-height: 350px;
+                            --mdc-dialog-shape-radius: 0px;
+
+                            /* color buttons */
+                            --mdc-theme-primary: green;
+                        }
+                    </style>
+
+                    <paper-button toggles raised active="{{ demoDialog5 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Styled
+                    </paper-button>
+                    <mwc-dialog id="dialog5" heading="Styled" class="styled" open="{{ demoDialog5 }}">
+                        <div>These are the current styles applied to this dialog</div>
+                        <pre>
+        --mdc-theme-surface: orange;
+        --mdc-dialog-scrim-color: rgba(35, 47, 52, .32);
+        --mdc-dialog-heading-ink-color: #232F34;
+        --mdc-dialog-content-ink-color: #232F34;
+        --mdc-dialog-scroll-divider-color: transparent;
+        --mdc-dialog-min-width: 500px;
+        --mdc-dialog-max-width: 700px;
+        --mdc-dialog-max-height: 350px;
+        --mdc-dialog-shape-radius: 0px;
+
+        /* color buttons */
+        --mdc-theme-primary: green;
+                </pre>
+                        <mwc-button slot="primaryAction" dialogAction="close">
+                            Too stylish for me!
+                        </mwc-button>
+                    </mwc-dialog>
+
+                    <paper-button toggles raised active="{{ demoDialog6 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Stacked
+                    </paper-button>
+                    <mwc-dialog id="dialog6" heading="Stacked" stacked open="{{ demoDialog6 }}">
+                        <div>
+                            This is what happens when you set the stacked property on mwc-dialog.
+                            Notice that the primary action is now on top.
+                        </div>
+                        <mwc-button slot="primaryAction" dialogAction="close">
+                            Primary
+                        </mwc-button>
+                        <mwc-button slot="secondaryAction" dialogAction="close">
+                            Secondary
+                        </mwc-button>
+                    </mwc-dialog>
+
+                    <paper-button toggles raised active="{{ demoDialog7 }}" ><iron-icon icon="vaadin:expand-full"></iron-icon>
+                        Initial Focus
+                    </paper-button>
+                    <mwc-dialog id="dialog7" heading="Initial Focus" open="{{ demoDialog7 }}">
+                        <div>
+                            In this example we set "dialogInitialFocus" on the mwc-textfield.
+                            When this dialog opens, it is auto-focused.
+                        </div>
+                        <mwc-textfield
+                                label="i am auto-focused"
+                                dialogInitialFocus>
+                        </mwc-textfield>
+                        <mwc-button slot="primaryAction" dialogAction="close">
+                            Primary
+                        </mwc-button>
+                        <mwc-button slot="secondaryAction" dialogAction="close">
+                            Secondary
+                        </mwc-button>
+                    </mwc-dialog>
+                </main>
+            </details>
+            <details>
+                <summary>
+                    <label> <mwc-icon>assignment_returned</mwc-icon> Drawer </label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/drawer"
+                ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/drawer.html"
+                ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <section>
+                    <mwc-drawer>
+                        <div> <p>Drawer Content!</p> </div>
+                        <div slot="appContent">
+                            <header> <h3>Standard</h3> </header>
+                            <div> <p>Main Content!</p> </div>
+                        </div>
+                    </mwc-drawer>
+                    <hr/>
+                    <mwc-drawer hasHeader>
+                        <span slot="title">Drawer Title</span>
+                        <span slot="subtitle">subtitle</span>
+                        <div> <p>Drawer content!</p> </div>
+                        <div slot="appContent">
+                            <header> <h3>Standard with Header</h3> </header>
+                            <div> <p>Main Content!</p> </div>
+                        </div>
+                    </mwc-drawer>
+                    <hr/>
+                    <mwc-drawer hasHeader type="dismissible" open="{{ demoDrawer3 }}">
+                        <span slot="title"   >Drawer Title </span>
+                        <span slot="subtitle">subtitle     </span>
+                        <div>
+                            <p>Drawer content!</p>
+                            <mwc-icon-button icon="gesture"></mwc-icon-button>
+                            <mwc-icon-button icon="gavel"  ></mwc-icon-button>
+                        </div>
+                        <div slot="appContent">
+                            <header>
+                                <paper-button toggles active="{{ demoDrawer3 }}" slot="navigationIcon"
+                                    ><mwc-icon>menu</mwc-icon>
+                                </paper-button>
+                                <h3>Dismissible</h3>
+                                <b>
+                                    <mwc-icon-button icon="file_download"   slot="actionItems"></mwc-icon-button>
+                                    <mwc-icon-button icon="print"           slot="actionItems"></mwc-icon-button>
+                                    <mwc-icon-button icon="favorite"        slot="actionItems"></mwc-icon-button>
+                                </b>
+                            </header>
+                            <div>
+                                <p>Main Content!</p>
+                            </div>
+                        </div>
+                    </mwc-drawer>
+                    <hr/>
+                    <mwc-drawer hasHeader type="modal" open="{{ demoDrawer4 }}">
+                        <span slot="title">Drawer Title</span>
+                        <span slot="subtitle">subtitle</span>
+                        <div>
+                            <p>Drawer content!</p>
+                            <mwc-icon-button icon="gesture"></mwc-icon-button>
+                            <mwc-icon-button icon="gavel"></mwc-icon-button>
+                        </div>
+                        <div slot="appContent">
+                            <header>
+                                <paper-button toggles active="{{ demoDrawer4 }}" slot="navigationIcon"
+                                    ><mwc-icon>menu</mwc-icon>
+                                </paper-button>
+                                <h3> Modal </h3>
+                            </header>
+                            <div> <p>Broken in this demo. It works only in own frame. Like &nbsp;
+                                <a href="https://mwc-demos.glitch.me/demos/drawer/modal.html"> here</a></p> </div>
+                        </div>
+                    </mwc-drawer>
+                </section>
+            </details>
+
+            <details>
+                <summary>
+                    <label> <mwc-icon>add_circle</mwc-icon> Floating Action Button</label>
+                </summary>
+                <a href="https://github.com/material-components/material-components-web-components/tree/master/packages/fab"
+                    ><mwc-button label="Help" icon="help" outlined ></mwc-button></a>
+                <a href="https://github.com/material-components/material-components-web-components/blob/master/demos/fab.html"
+                    ><mwc-button label="demo source" icon="code" outlined ></mwc-button></a>
+                <p>
+                    <mwc-fab icon="edit"></mwc-fab>
+                    <mwc-fab icon="add" mini=""></mwc-fab>
+                    <mwc-fab icon="shopping_cart" extended="" label="Add To Cart"></mwc-fab>
+                    <mwc-fab icon="share" class="blackAndWhite"></mwc-fab>
+                </p>
+            </details>
+        </main>
+
+        <textarea style="width: 100%;height: 9em" id="configtext" value="{{sel::change}}"></textarea>
+        <button onclick=" navigator.clipboard.writeText(configtext.value) ">&boxbox; Copy</button>
+        <button onclick=" webcomponentsElement.importDependencies() ">Apply</button>
+
+</web-elemens-loader>
+    </template>
+</dom-bind>
