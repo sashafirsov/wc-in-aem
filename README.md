@@ -3,6 +3,15 @@
 This project replaces webpack bundle in [AEM archetype](https://github.com/adobe/aem-project-archetype)
 with CDN-capable build toolchain [polymer-cli](https://polymer-library.polymer-project.org/3.0/docs/tools/polymer-cli) 
 
+The set of Web Components is provided by [web-elements-loader](https://github.com/EPA-WG/web-elements-loader) 
+
+# CDN+WebComponent advantages
+* Code in JS loaded only once
+* HTML DOM reuses template from Web Component instead of replicating as in JS-centric frameworks
+* CSS properties eliminate the CSS rules replications by SASS
+* Shadow DOM insulate component styles making safe to work without prefixes.
+And so on.
+
 # Browser-specific tuning
 JS produces builds:  
 * `esm-unbundled` for modern browsers with es6 modules
