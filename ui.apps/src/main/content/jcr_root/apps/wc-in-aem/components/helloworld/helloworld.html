@@ -13,15 +13,9 @@
             Web Component
         </legend>
 
-        <div class="cmp-helloworld__item" data-sly-use.WcInAem="suns.aem.core.models.WcInAem" data-sly-test="${model.message}">
-            WcInAem 0:
+        <sly  data-sly-use.WcInAem="suns.aem.core.models.WcInAem" >
             ${WcInAem.html @ context='unsafe'}
-        </div>
-
-        <div class="cmp-helloworld__item" data-sly-use.WcInAem="suns.aem.core.models.WcInAem" data-sly-test="${model.message}">
-            WcInAem 1:
-            ${WcInAem.html @ context='unsafe'}
-        </div>
+        </sly>
 
         <polymer3vaadin15-element prop1="${properties.text}" prop2="${properties.prop2}">
             WEB COMPONENTS NOT LOADED
