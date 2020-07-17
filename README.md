@@ -18,9 +18,44 @@ The native es6 `import` in legacy browsers would be replaced with AMD API.
 # CDN modules reuse
 Unlike WebPack-based AEM archetype code polymer-cli gives ability to reuse the modules across different applications 
 and pages. Even if same module included multiple times on original page or dynamically, browser will load it only ONCE.
+# How to insert Web Component into HTML
+In AEM you could insert into component template ( [see sample](ui.apps/src/main/content/jcr_root/apps/wc-in-aem/components/helloworld/helloworld.html) )
+```html
+    <sly data-sly-use.WcInAem="suns.aem.core.models.WcInAem">
+        ${WcInAem.html @ context='unsafe'}
+    </sly>
+
+    Declarative dependency loading via web-elemens-loader:
+    <script type="module" src="/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-debug/src/web-elemens-loader.js"></script>
+    Script could be set in page template so components would not need to use scripts later 
+    <web-elemens-loader  id="webcomponentsElement" selection="
+        @vaadin/vaadin-upload,
+        ">
+        <vaadin-upload accept=".pdf">
+          <span slot="drop-label">Drop your favourite Novels here (PDF files only)</span>
+        </vaadin-upload>
+    </web-elemens-loader>
+    
+    Explicit dependency loading via SCRIPT tag:
+    <script type="module" src="/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-unbundled/polymer3vaadin15-element.js"></script>
+    <polymer3vaadin15-element prop1="abc" prop2="xyz"></polymer3vaadin15-element>
+```
+The `sly` tag calls [WcInAem.java](core/src/main/java/suns/aem/core/models/WcInAem.java) which
+ picks necessary script according to user agent string from one of build targets
+* `esm-unbundled` for current browsers
+* `es5-bundled`  for other legacy browsers
+* `esm-debug`   meant for debugging the uncompiled code. Triggered when URL has one of parameters: 
+`wcmmode=disabled`, `debugClientLibs=true`, `debug=true`
+
+# Screenshot of web components loaded declaratively
+![Screenshot](screenshot1.png)
+
+# Why CDN?
+Deployed JS could be used from same domain using the relative path of with absolute URL from any another domain
+making AEM a web server in CDN.
 
 
-## Modules
+# Modules
 
 The main parts of the template are:
 
