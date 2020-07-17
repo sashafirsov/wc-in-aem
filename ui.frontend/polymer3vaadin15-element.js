@@ -19,9 +19,10 @@ class Polymer3vaadin15Element extends PolymerElement {
                              0 0  0 2px rgb(255,255,255),
                              0.3em 0.3em 1em rgba(0,0,0,0.3);
         }
-        h2{ color: purple; }
+        h3{ color: purple; }
       </style>
-      <h2>H2 prop1: [[prop1]]!</h2>
+      <h2>&lt;polymer3vaadin15-element&gt; instance</h2>
+      <h3>H3 prop1: [[prop1]]!</h3>
       <p>prop2: [[prop2]]</p>
     `;
   }
