@@ -1,0 +1,11 @@
+<section>
+    <sly data-sly-test="${wcmmode.edit}">
+        <h2>${properties.title}</h2>
+        <a href="${properties.link}">${properties.link}</a>
+    </sly>
+    <embed-page src="${properties.link}" style="background-color: lightgreen">
+        loading ${properties.link}
+    </embed-page>
+    <script src="/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-debug/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script type="module" src="/etc.clientlibs/wc-in-aem/clientlibs/clientlib-site/resources/build/esm-debug/node_modules/embed-page/embed-page.js"></script>
+</section>
