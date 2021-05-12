@@ -1,0 +1,9 @@
+<sly>
+    <sly data-sly-test="${wcmmode.edit}">
+        <h2>${properties.title}</h2>
+    </sly>
+    <style>
+        /* ${properties.title @ context='text'} */
+        ${ properties.csstext  @ context='unsafe' }
+    </style>
+</sly>
